@@ -1,0 +1,49 @@
+# Agent Architecture 3.0: Finance Squad Team Configuration
+# Defines all agents that are part of the financial analysis team.
+
+team_info:
+  name: "finance_squad"
+  description: "Handles all financial analysis, modeling, and funding tasks"
+  lead_agent: "senior_financial_analyst"
+  specialization: "financial_analysis"
+
+coordination:
+  strategy: "hierarchical"  # Tasks flow through the lead agent
+  consensus_threshold: 0.85
+  collaboration_patterns:
+    - "senior_financial_analyst -> risk_analyst"
+    - "senior_financial_analyst -> investment_advisor"
+
+agents:
+  senior_financial_analyst:
+    class: "FinanceAgent"
+    path: "src.agents.teams.finance_squad.finance_agent"
+    description: "Lead agent for financial analysis, modeling, and strategic planning"
+    skills: 
+      - "financial_modeling"
+      - "risk_analysis" 
+      - "investment_strategy"
+      - "sba_loans"
+      - "business_planning"
+      - "financial_projections"
+      - "rag_query"
+      - "gaap_compliance"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 2
+    priority_level: "high"
+
+# Performance settings
+performance:
+  team_max_concurrent: 2
+  priority_level: "high"
+  resource_allocation: "standard"
+  
+# Quality assurance
+quality:
+  review_required: true
+  accuracy_threshold: 0.95
+  compliance_check: true

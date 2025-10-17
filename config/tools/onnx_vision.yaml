@@ -1,0 +1,19 @@
+# ONNX Vision Models Configuration
+type: "onnx_vision"
+models_path: "/Volumes/heloimai 1/autonomous_enterprise_builder/models/onnx-models"
+description: "Computer vision models for image analysis and generation"
+available_models:
+  - name: "resnet50"
+    path: "Computer_Vision/resnet50/model.onnx"
+    task: "image_classification"
+  - name: "yolo"
+    path: "Computer_Vision/yolo/model.onnx" 
+    task: "object_detection"
+  - name: "stable_diffusion"
+    path: "Generative_AI/stable_diffusion/model.onnx"
+    task: "image_generation"
+capabilities:
+  - "image_analysis"
+  - "object_detection"
+  - "image_generation"
+  - "visual_qa"

@@ -1,0 +1,47 @@
+# --- AUTONOMOUS ENTERPRISE BUILDER - MAIN ORCHESTRATOR CONFIG ---
+system:
+  name: "Autonomous Enterprise Builder"
+  version: "1.0.0"
+  mode: "production"
+
+# Core system paths
+paths:
+  workspaces: "./data/project_workspaces"
+  vector_store: "./data/vector_store"
+  knowledge_base: "./knowledge_base"
+  logs: "./logs"
+
+# Swarm configuration
+swarm:
+  max_agents: 140
+  quality_threshold: 0.9
+  max_refinement_cycles: 3
+  
+# Model management
+models:
+  default_provider: "ollama"
+  config_path: "./config/ollama.yaml"
+  
+# Agent deployment
+agents:
+  development_squad:
+    - name: "FrontendDev_001"
+      skills: ["frontend_html", "frontend_css", "frontend_js"]
+      model: "deepseek-coder"
+    - name: "BackendDev_001" 
+      skills: ["backend_python", "api_design", "database"]
+      model: "deepseek-coder"
+  
+  qa_team:
+    - name: "QAValidator_001"
+      skills: ["qa", "qa-frontend", "qa-backend"]
+      model: "llama3.2"
+
+# Workspace management
+workspace:
+  auto_create: true
+  structure:
+    - "src/"
+    - "assets/"
+    - "docs/"
+    - "tests/"

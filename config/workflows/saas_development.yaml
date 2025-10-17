@@ -1,0 +1,25 @@
+workflow_name: "Standard SaaS Development"
+description: "6-phase workflow for building a SaaS application"
+
+phases:
+  - name: "Research & Discovery"
+    description: "Market and technical feasibility research"
+    teams: ["research_consortium"]
+    required_artifacts:
+      - "docs/business_plan.md"
+      - "docs/market_analysis.md"
+    
+  - name: "Architecture & Design"
+    description: "System and database architecture design"
+    teams: ["architecture_council"]
+    required_artifacts:
+      - "docs/tech_architecture.md"
+      - "docs/database_schema.sql"
+    
+  - name: "Development"
+    description: "Build frontend, backend, and database"
+    teams: ["development_squad"]
+    required_artifacts:
+      - "src/app.js"
+      - "src/api.py"
+      - "tests/report.json"

@@ -1,0 +1,9 @@
+agent_id: "DatabaseArchitect_001"
+agent_class: "DatabaseDesignerAgent"
+skills:
+  - "database_design"
+  - "sql"
+  - "schema_design"
+model_preference: "code_generation"
+priority: 1
+active: true

@@ -1,0 +1,47 @@
+providers:
+  # Local Ollama (Primary)
+  ollama_local:
+    client_class: "OllamaClient"
+    base_url: "http://localhost:11434"
+    models:
+      - "llama3.2:latest"
+      - "deepseek-coder:6.7b"
+      - "wizard-vicuna-uncensored:latest"
+  
+  # Ollama Cloud (Backup - requires API key)
+  ollama_cloud:
+    client_class: "OllamaCloudClient"
+    base_url: "https://api.ollama.com"
+    api_key: ""
+    enabled: false  # Disabled by default
+    models:
+      - "llama3.2"
+      - "codellama"
+  
+  # Azure AI Foundry Local (Optional)
+  foundry_local:
+    client_class: "FoundryClient"
+    base_url: "http://localhost:1234"
+    api_key: ""
+    enabled: false  # Disabled by default
+    models:
+      - "gpt-4o-mini"
+  
+  # OpenAI Cloud (Optional - requires API key)
+  openai_cloud:
+    client_class: "OpenAIClient"
+    base_url: "https://api.openai.com/v1"
+    api_key: ""
+    enabled: false  # Disabled by default
+    models:
+      - "gpt-4o-mini"
+
+capability_mapping:
+  # Primary routing (Ollama local only)
+  general_purpose: "ollama_local/llama3.2:latest"
+  code_generation: "ollama_local/deepseek-coder:6.7b"
+  creative_writing: "ollama_local/wizard-vicuna-uncensored:latest"
+  
+  # Fallbacks
+  default: "ollama_local/llama3.2:latest"
+  fallback: "ollama_local/llama3.2:latest"

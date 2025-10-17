@@ -1,0 +1,14 @@
+# Main LLM Tool Configuration - Ollama Integration
+type: "ollama"
+model: "deepseek-coder:6.7b"
+api_url: "http://localhost:11434/api/generate"
+description: "Primary code generation model for development tasks"
+capabilities:
+  - "code_generation"
+  - "json_formatting"
+  - "api_design"
+  - "documentation"
+fallback_models:
+  - "llama3"
+  - "codellama"
+  - "qwen2.5-coder"

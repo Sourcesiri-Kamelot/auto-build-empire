@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  # Main application with 140+ agents
+  enterprise_builder:
+    build: .
+    environment:
+      REDIS_HOST: redis
+      CHROMADB_HOST: chromadb
+    depends_on:
+      - redis
+      - chromadb
+    volumes:
+      - ./data:/app/data
+
+  # ChromaDB microservice
+  chromadb:
+    image: chromadb/chroma:latest
+    volumes:
+      - ./data/vector_store:/chroma/.chroma/index
+    ports:
+      - "8000:8000"
+
+  # Redis message broker
+  redis:
+    image: redis:latest
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data/redis:/data
+    ports:
+      - "6379:6379"

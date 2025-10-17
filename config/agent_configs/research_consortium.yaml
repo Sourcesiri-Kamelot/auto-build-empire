@@ -1,0 +1,36 @@
+team_name: research_consortium
+team_size: 4
+consensus_threshold: 0.75
+
+agents:
+  market_analyst:
+    class: MarketAnalystAgent
+    path: src.agents.research_consortium.market_analyst
+    prompt_file: src/agents/research_consortium/market_analyst.prompt
+    primary_model: onnx.roberta
+    secondary_model: ollama.wizard-vicuna
+    specialty: "market_research_and_competitive_analysis"
+  
+  user_researcher:
+    class: UserResearcherAgent
+    path: src.agents.research_consortium.user_researcher
+    prompt_file: src/agents/research_consortium/user_researcher.prompt
+    primary_model: onnx.bert
+    secondary_model: onnx.distilbert
+    specialty: "user_behavior_and_demographics"
+  
+  business_analyst:
+    class: BusinessAnalystAgent
+    path: src.agents.research_consortium.business_analyst
+    prompt_file: src/agents/research_consortium/business_analyst.prompt
+    primary_model: onnx.roberta
+    secondary_model: ollama.llama3.2
+    specialty: "financial_analysis_and_projections"
+  
+  tech_feasibility:
+    class: TechFeasibilityAgent
+    path: src.agents.research_consortium.tech_feasibility
+    prompt_file: src/agents/research_consortium/tech_feasibility.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.codellama
+    specialty: "technical_requirements_and_implementation"

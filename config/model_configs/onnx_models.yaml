@@ -1,0 +1,35 @@
+provider: onnx
+base_path: models/onnx-models
+
+text_analysis_models:
+  bert:
+    path: "Natural_Language_Processing/bert_Opset18_transformers/bert_Opset18.onnx"
+    specialty: "text_classification"
+    use_cases: ["sentiment_analysis", "user_feedback_analysis"]
+  
+  roberta:
+    path: "Natural_Language_Processing/roberta_Opset18_transformers/roberta_Opset18.onnx"
+    specialty: "business_text_analysis"
+    use_cases: ["market_analysis", "financial_text_processing"]
+  
+  distilbert:
+    path: "Natural_Language_Processing/distilbert_Opset18_transformers/distilbert_Opset18.onnx"
+    specialty: "lightweight_text_analysis"
+    use_cases: ["quick_classification", "verification_tasks"]
+
+text_generation_models:
+  t5encoder:
+    path: "Natural_Language_Processing/t5encoder_Opset17_transformers/t5encoder_Opset17.onnx"
+    specialty: "text_generation"
+    use_cases: ["content_creation", "summarization"]
+  
+  mpnet:
+    path: "Natural_Language_Processing/mpnet_Opset17_transformers/mpnet_Opset17.onnx"
+    specialty: "semantic_understanding"
+    use_cases: ["data_extraction", "content_processing"]
+
+validated_models:
+  production_ready:
+    base_path: "validated/"
+    count: 190
+    use_cases: ["production_deployment", "high_accuracy_tasks"]

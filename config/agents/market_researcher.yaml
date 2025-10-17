@@ -1,0 +1,10 @@
+agent_id: "MarketResearcher_001"
+agent_class: "MarketResearchAgent"
+skills:
+  - "market_research"
+  - "competitive_analysis"
+  - "user_research"
+  - "business_analysis"
+model_preference: "general_purpose"
+priority: 2
+active: true

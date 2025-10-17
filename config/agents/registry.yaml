@@ -1,0 +1,57 @@
+# Agent Architecture 3.0 - Master Agent Registry
+# This is the single source of truth for all agent teams in the enterprise
+
+agent_teams:
+  - name: "development_squad"
+    description: "Full-stack development specialists"
+    config_file: "development_squad.yaml"
+    agent_count: 4
+    
+  - name: "finance_squad" 
+    description: "Financial analysis and reporting specialists"
+    config_file: "finance_squad.yaml"
+    agent_count: 1
+    
+  - name: "cyber_security_squad"
+    description: "Cybersecurity and penetration testing specialists"
+    config_file: "cyber_security_squad.yaml"
+    agent_count: 3
+    
+  - name: "digital_presence_squad"
+    description: "Complete digital presence and web development specialists"
+    config_file: "digital_presence_squad.yaml"
+    agent_count: 4
+    
+  - name: "qa_team"
+    description: "Quality assurance and testing specialists" 
+    config_file: "qa_team.yaml"
+    agent_count: 4
+    
+  - name: "research_consortium"
+    description: "Market research and competitive intelligence"
+    config_file: "research_consortium.yaml"
+    agent_count: 4
+    
+  - name: "marketing_collective"
+    description: "Brand strategy and growth hacking"
+    config_file: "marketing_collective.yaml"
+    agent_count: 4
+    
+  - name: "deployment_ops"
+    description: "DevOps and infrastructure management"
+    config_file: "deployment_ops.yaml"
+    agent_count: 5
+
+# Global agent configuration
+global_config:
+  max_concurrent_agents: 50
+  default_model_preference: "code_generation"
+  state_persistence: true
+  monitoring_enabled: true
+  
+# Enterprise settings
+enterprise:
+  total_agent_capacity: 140
+  swarm_coordination: true
+  offline_mode: true
+  knowledge_base_integration: true

@@ -1,0 +1,24 @@
+# Git LFS Configuration for Auto Build Empire
+# Track large model files and binaries
+
+# Model files
+*.gguf filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+
+# Knowledge base files
+*.pdf filter=lfs diff=lfs merge=lfs -text
+knowledge_base/**/*.pdf filter=lfs diff=lfs merge=lfs -text
+
+# Data files
+*.log filter=lfs diff=lfs merge=lfs -text
+*.db filter=lfs diff=lfs merge=lfs -text
+*.sqlite filter=lfs diff=lfs merge=lfs -text
+
+# Archive files
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# Large text files
+indexing.log filter=lfs diff=lfs merge=lfs -text

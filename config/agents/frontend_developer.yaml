@@ -1,0 +1,11 @@
+agent_id: "FrontendDev_001"
+agent_class: "FrontendDeveloperAgent"
+skills:
+  - "frontend_development"
+  - "html"
+  - "css"
+  - "javascript"
+  - "ui_design"
+model_preference: "code_generation"
+priority: 1
+active: true

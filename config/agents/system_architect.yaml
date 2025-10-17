@@ -1,0 +1,18 @@
+agent_id: "SystemArchitect_001"
+agent_class: "SystemArchitectAgent"
+skills:
+  - "system_design"
+  - "architecture"
+  - "scalability"
+  - "design_patterns"
+  - "component_diagramming"
+tools:
+  - "diagram_generator"
+  - "tech_stack_database"
+  - "write_file"
+communication:
+  input_source: "project_manager_queue"
+  output_target: "shared_project_db"
+model_preference: "general_purpose"
+priority: 1
+active: true

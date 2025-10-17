@@ -1,0 +1,103 @@
+# Development Squad - Agent Team Configuration
+# Specialized agents for full-stack software development
+
+team_info:
+  name: "development_squad"
+  description: "Elite full-stack development team"
+  specialization: "software_development"
+  coordination_model: "collaborative"
+
+agents:
+  backend_developer:
+    class: "BackendDeveloper"
+    path: "src.agents.teams.development_squad.backend_developer"
+    description: "Generates FastAPI/Flask backends from API specifications"
+    skills: 
+      - "python"
+      - "fastapi" 
+      - "flask"
+      - "sqlalchemy"
+      - "api_design"
+      - "database_integration"
+    tools:
+      - "file_write"
+      - "file_read"
+      - "code_lint"
+      - "knowledge_query"
+    model_preference: "code_generation"
+    preferred_frameworks: ["FastAPI", "Flask", "Django"]
+    max_concurrent_tasks: 3
+    
+  frontend_developer:
+    class: "FrontendDeveloper" 
+    path: "src.agents.teams.development_squad.frontend_developer"
+    description: "Generates React/Vue frontends from component designs"
+    skills:
+      - "react"
+      - "vue"
+      - "javascript"
+      - "typescript"
+      - "tailwind_css"
+      - "html"
+      - "responsive_design"
+    tools:
+      - "file_write"
+      - "file_read"
+      - "code_lint"
+    model_preference: "code_generation"
+    preferred_frameworks: ["React", "Vue.js", "Next.js"]
+    max_concurrent_tasks: 3
+    
+  database_specialist:
+    class: "DatabaseSpecialist"
+    path: "src.agents.teams.development_squad.database_specialist" 
+    description: "Designs and optimizes database schemas and queries"
+    skills:
+      - "postgresql"
+      - "mysql"
+      - "mongodb"
+      - "schema_design"
+      - "query_optimization"
+      - "database_migration"
+    tools:
+      - "file_write"
+      - "file_read"
+      - "knowledge_query"
+    model_preference: "code_generation"
+    preferred_databases: ["PostgreSQL", "MongoDB", "Redis"]
+    max_concurrent_tasks: 2
+    
+  api_designer:
+    class: "APIDesigner"
+    path: "src.agents.teams.development_squad.api_designer"
+    description: "Creates comprehensive API specifications and documentation"
+    skills:
+      - "api_design"
+      - "openapi"
+      - "rest_design"
+      - "graphql"
+      - "api_documentation"
+      - "swagger"
+    tools:
+      - "file_write"
+      - "file_read"
+      - "knowledge_query"
+    model_preference: "general_purpose"
+    preferred_standards: ["OpenAPI 3.0", "REST", "GraphQL"]
+    max_concurrent_tasks: 4
+
+# Team coordination settings
+coordination:
+  lead_agent: "backend_developer"
+  collaboration_patterns:
+    - "api_designer -> backend_developer"
+    - "backend_developer -> database_specialist" 
+    - "api_designer -> frontend_developer"
+  shared_context: true
+  cross_agent_memory: true
+
+# Performance settings
+performance:
+  team_max_concurrent: 8
+  priority_level: "high"
+  resource_allocation: "standard"

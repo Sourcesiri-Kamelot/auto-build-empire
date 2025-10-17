@@ -1,0 +1,36 @@
+# --- AUTONOMOUS ENTERPRISE BUILDER - OLLAMA MODEL CONFIG ---
+ollama:
+  host: "http://localhost:11434"
+  timeout: 30
+
+models:
+  # Primary development model
+  deepseek-coder:
+    capabilities: ["code_generation", "debugging", "architecture"]
+    context_length: 16384
+    temperature: 0.1
+    
+  # General reasoning model  
+  llama3.2:
+    capabilities: ["analysis", "planning", "qa", "content"]
+    context_length: 8192
+    temperature: 0.3
+    
+  # Specialized models
+  wizard-vicuna-uncensored:
+    capabilities: ["creative", "marketing", "copywriting"]
+    context_length: 4096
+    temperature: 0.7
+
+# Model routing rules
+routing:
+  frontend_html: "deepseek-coder"
+  frontend_css: "deepseek-coder" 
+  frontend_js: "deepseek-coder"
+  backend_python: "deepseek-coder"
+  api_design: "deepseek-coder"
+  database: "deepseek-coder"
+  qa: "llama3.2"
+  analysis: "llama3.2"
+  marketing: "wizard-vicuna-uncensored"
+  copywriting: "wizard-vicuna-uncensored"

@@ -1,0 +1,11 @@
+agent_id: "DevOps_001"
+agent_class: "DevOpsAgent"
+skills:
+  - "devops"
+  - "deployment"
+  - "docker"
+  - "ci_cd"
+  - "infrastructure"
+model_preference: "code_generation"
+priority: 2
+active: true

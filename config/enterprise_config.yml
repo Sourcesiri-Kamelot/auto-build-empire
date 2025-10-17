@@ -1,0 +1,4 @@
+# Master Configuration
+enterprise:
+  agents: 24
+  phases: 6

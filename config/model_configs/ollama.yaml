@@ -1,0 +1,27 @@
+provider: ollama
+endpoint: http://localhost:11434
+
+models:
+  deepseek-coder:
+    id: "deepseek-coder:6.7b"
+    size: "3.8 GB"
+    specialty: "code_generation"
+    use_cases: ["backend_development", "system_architecture", "technical_analysis"]
+  
+  llama3.2:
+    id: "llama3.2:latest"
+    size: "2.0 GB"
+    specialty: "general_reasoning"
+    use_cases: ["general_tasks", "fallback_model", "coordination"]
+  
+  wizard-vicuna:
+    id: "wizard-vicuna-uncensored:7b"
+    size: "3.8 GB"
+    specialty: "uncensored_analysis"
+    use_cases: ["market_research", "competitive_analysis"]
+  
+  codellama:
+    id: "codellama:latest"
+    size: "3.8 GB"
+    specialty: "code_analysis"
+    use_cases: ["code_review", "debugging", "optimization"]

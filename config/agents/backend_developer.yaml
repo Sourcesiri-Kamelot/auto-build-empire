@@ -1,0 +1,10 @@
+agent_id: "BackendDev_001"
+agent_class: "BackendDeveloperAgent"
+skills:
+  - "backend_development"
+  - "python_coding"
+  - "api_development"
+  - "flask"
+model_preference: "code_generation"
+priority: 1
+active: true

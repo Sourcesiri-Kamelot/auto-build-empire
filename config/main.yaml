@@ -1,0 +1,36 @@
+# --- AUTONOMOUS ENTERPRISE BUILDER - MASTER CONFIGURATION ---
+# Central configuration for the entire system
+
+system:
+  name: "Autonomous Enterprise Builder"
+  version: "3.0"
+  environment: "production"
+
+paths:
+  knowledge_base: "/Volumes/heloimai 1/autonomous_enterprise_builder/knowledge_base"
+  models: "/Volumes/heloimai 1/autonomous_enterprise_builder/models"
+  data: "/Volumes/heloimai 1/autonomous_enterprise_builder/data"
+  workspaces: "/Volumes/heloimai 1/autonomous_enterprise_builder/data/project_workspaces"
+  tools: "/Volumes/heloimai 1/autonomous_enterprise_builder/src/tools"
+  workflows: "/Volumes/heloimai 1/autonomous_enterprise_builder/config/workflows"
+
+services:
+  knowledge_engine:
+    enabled: true
+    auto_start: true
+    scan_interval: 60
+  
+  model_manager:
+    enabled: true
+    config_file: "config/models/production.yaml"
+    test_connections: true
+  
+  orchestrator:
+    enabled: true
+    max_agents: 140
+    workspace_cleanup: false
+
+logging:
+  level: "INFO"
+  format: "[%(name)s] %(message)s"
+  file: "data/logs/system.log"

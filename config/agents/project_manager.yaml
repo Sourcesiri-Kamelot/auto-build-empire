@@ -1,0 +1,17 @@
+agent_id: "ProjectManager_001"
+agent_class: "ProjectManagerAgent"
+skills:
+  - "project_coordination"
+  - "task_delegation"
+  - "planning"
+  - "resource_management"
+tools:
+  - "task_queue"
+  - "write_file"
+  - "project_tracker"
+communication:
+  input_source: "orchestrator_queue"
+  output_target: "agent_coordination_bus"
+model_preference: "general_purpose"
+priority: 0
+active: true

@@ -1,0 +1,125 @@
+orchestrator:
+  browser_settings:
+    headless: false
+    timeout: 30
+  
+  # BUDDY SYSTEM - Multiple models per job for consensus
+  model_teams:
+    search_team:
+      primary: "models/onnx-models/Natural_Language_Processing/bert_Opset18_transformers/bert_Opset18.onnx"
+      verifier: "models/onnx-models/Natural_Language_Processing/roberta_Opset18_transformers/roberta_Opset18.onnx"
+      fallback: "llama3.2:latest"
+    
+    analysis_team:
+      primary: "models/onnx-models/Natural_Language_Processing/roberta_Opset18_transformers/roberta_Opset18.onnx"
+      secondary: "models/onnx-models/Natural_Language_Processing/distilbert_Opset18_transformers/distilbert_Opset18.onnx"
+      verifier: "models/onnx-models/Natural_Language_Processing/electra_Opset17_transformers/electra_Opset17.onnx"
+      fallback: "deepseek-coder:6.7b"
+    
+    extraction_team:
+      primary: "models/onnx-models/Natural_Language_Processing/t5encoder_Opset17_transformers/t5encoder_Opset17.onnx"
+      secondary: "models/onnx-models/Natural_Language_Processing/mpnet_Opset17_transformers/mpnet_Opset17.onnx"
+      verifier: "models/onnx-models/Natural_Language_Processing/bert_Opset18_transformers/bert_Opset18.onnx"
+      fallback: "wizard-vicuna-uncensored:7b"
+    
+    execution_team:
+      primary: "deepseek-coder:6.7b"
+      secondary: "codellama:latest"
+      verifier: "models/onnx-models/Natural_Language_Processing/roberta_Opset18_transformers/roberta_Opset18.onnx"
+      fallback: "llama3.2:latest"
+  
+  # UI OPERATOR TEAMS (Power Rangers / Megazord)
+  agent_teams:
+    search_team:
+      - name: "search_specialist"
+        path: "src.agents.ui_operator.search_specialist"
+        class: "SearchSpecialistAgent"
+        models: ["search_team.primary", "search_team.verifier"]
+        task: "Navigate to search engines and perform searches"
+      - name: "search_verifier"
+        path: "src.agents.ui_operator.search_verifier"
+        class: "SearchVerifierAgent"
+        models: ["search_team.verifier", "search_team.fallback"]
+        task: "Verify search results for relevance and accuracy"
+    
+    analysis_navigation_team:
+      - name: "page_analyzer"
+        path: "src.agents.ui_operator.page_analyzer"
+        class: "PageAnalyzerAgent"
+        models: ["analysis_team.primary", "analysis_team.secondary"]
+        task: "Analyze webpage structure and identify key elements"
+      - name: "navigation_specialist"
+        path: "src.agents.ui_operator.navigation_specialist"
+        class: "NavigationSpecialistAgent"
+        models: ["analysis_team.secondary", "analysis_team.verifier"]
+        task: "Navigate to identified links and buttons"
+      - name: "analysis_verifier"
+        path: "src.agents.ui_operator.analysis_verifier"
+        class: "AnalysisVerifierAgent"
+        models: ["analysis_team.verifier", "analysis_team.fallback"]
+        task: "Verify analysis accuracy and navigation success"
+    
+    data_extraction_team:
+      - name: "content_extractor"
+        path: "src.agents.ui_operator.content_extractor"
+        class: "ContentExtractorAgent"
+        models: ["extraction_team.primary", "extraction_team.secondary"]
+        task: "Extract and read page content by scrolling"
+      - name: "data_processor"
+        path: "src.agents.ui_operator.data_processor"
+        class: "DataProcessorAgent"
+        models: ["extraction_team.secondary", "extraction_team.verifier"]
+        task: "Process and structure extracted data"
+      - name: "extraction_verifier"
+        path: "src.agents.ui_operator.extraction_verifier"
+        class: "ExtractionVerifierAgent"
+        models: ["extraction_team.verifier", "extraction_team.fallback"]
+        task: "Verify data extraction completeness and accuracy"
+    
+    task_execution_team:
+      - name: "form_filler"
+        path: "src.agents.ui_operator.form_filler"
+        class: "FormFillerAgent"
+        models: ["execution_team.primary", "execution_team.secondary"]
+        task: "Fill out forms and input fields"
+      - name: "action_executor"
+        path: "src.agents.ui_operator.action_executor"
+        class: "ActionExecutorAgent"
+        models: ["execution_team.secondary", "execution_team.verifier"]
+        task: "Click buttons and execute interactive tasks"
+      - name: "execution_verifier"
+        path: "src.agents.ui_operator.execution_verifier"
+        class: "ExecutionVerifierAgent"
+        models: ["execution_team.verifier", "execution_team.fallback"]
+        task: "Verify task execution success"
+  
+  # BRAIN AGENT (Orchestrator)
+  brain_agent:
+    name: "ui_operator_brain"
+    path: "src.agents.ui_operator.brain_orchestrator"
+    class: "BrainOrchestratorAgent"
+    models: ["execution_team.primary", "analysis_team.primary", "extraction_team.primary"]
+    task: "Understand commands and delegate to specialized teams"
+  
+  # UI OPERATOR WORKFLOWS
+  workflows:
+    ui_operations:
+      consensus_threshold: 0.75
+      team_coordination: "parallel_with_verification"
+      
+      operations:
+        - name: "search_and_analyze"
+          teams: ["search_team", "analysis_navigation_team"]
+          sequence: "sequential"
+        - name: "extract_and_process"
+          teams: ["data_extraction_team"]
+          sequence: "parallel"
+        - name: "execute_tasks"
+          teams: ["task_execution_team"]
+          sequence: "sequential_with_verification"
+  
+  logging:
+    level: "INFO"
+    log_dir: "data/logs"
+    session_tracking: true
+    team_coordination_logs: true

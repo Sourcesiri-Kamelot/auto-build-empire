@@ -1,0 +1,36 @@
+team_name: development_squad
+team_size: 4
+consensus_threshold: 0.7
+
+agents:
+  frontend_developer:
+    class: FrontendDeveloperAgent
+    path: src.agents.development_squad.frontend_developer
+    prompt_file: src/agents/development_squad/frontend_developer.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.codellama
+    specialty: "ui_ux_and_frontend_implementation"
+  
+  backend_developer:
+    class: BackendDeveloperAgent
+    path: src.agents.development_squad.backend_developer
+    prompt_file: src/agents/development_squad/backend_developer.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.llama3.2
+    specialty: "server_side_and_api_implementation"
+  
+  database_developer:
+    class: DatabaseDeveloperAgent
+    path: src.agents.development_squad.database_developer
+    prompt_file: src/agents/development_squad/database_developer.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: onnx.roberta
+    specialty: "database_implementation_and_migrations"
+  
+  devops_engineer:
+    class: DevOpsEngineerAgent
+    path: src.agents.development_squad.devops_engineer
+    prompt_file: src/agents/development_squad/devops_engineer.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.llama3.2
+    specialty: "deployment_and_infrastructure_automation"

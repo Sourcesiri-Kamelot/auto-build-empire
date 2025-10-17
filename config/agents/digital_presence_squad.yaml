@@ -1,0 +1,120 @@
+# Agent Architecture 3.0: Digital Presence Squad Team Configuration
+# Complete digital presence and web development specialists
+
+team_info:
+  name: "digital_presence_squad"
+  description: "Complete digital presence management from websites to social media"
+  lead_agent: "website_builder"
+  specialization: "digital_marketing"
+
+coordination:
+  strategy: "pipeline"  # Sequential workflow for digital presence
+  consensus_threshold: 0.85
+  collaboration_patterns:
+    - "website_builder -> seo_analyst"
+    - "website_builder -> social_media_manager"
+    - "social_media_manager -> crm_specialist"
+
+agents:
+  website_builder:
+    class: "WebsiteBuilder"
+    path: "src.agents.teams.digital_presence_squad.website_builder"
+    description: "Full-stack web developer capable of creating complete deployable applications"
+    skills: 
+      - "full_stack_development"
+      - "frontend_development"
+      - "backend_development"
+      - "web_design"
+      - "responsive_design"
+      - "api_development"
+      - "docker_deployment"
+      - "nginx_configuration"
+      - "database_design"
+      - "ui_ux_design"
+    tools:
+      - "file_write"
+      - "file_read"
+      - "directory_create"
+      - "knowledge_query"
+      - "code_lint"
+    model_preference: "code_generation"
+    max_concurrent_tasks: 2
+    priority_level: "high"
+    
+  seo_analyst:
+    class: "SEOAnalyst"
+    path: "src.agents.teams.digital_presence_squad.seo_analyst"
+    description: "SEO optimization and web content analysis specialist"
+    skills:
+      - "seo_optimization"
+      - "keyword_research"
+      - "content_analysis"
+      - "technical_seo"
+      - "performance_optimization"
+      - "analytics_tracking"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 3
+    priority_level: "medium"
+    
+  social_media_manager:
+    class: "SocialMediaManager"
+    path: "src.agents.teams.digital_presence_squad.social_media_manager"
+    description: "Social media strategy and content management specialist"
+    skills:
+      - "social_media_strategy"
+      - "content_creation"
+      - "brand_management"
+      - "engagement_optimization"
+      - "social_analytics"
+      - "campaign_management"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 4
+    priority_level: "medium"
+    
+  crm_specialist:
+    class: "CRMSpecialist"
+    path: "src.agents.teams.digital_presence_squad.crm_specialist"
+    description: "Customer relationship management and automation specialist"
+    skills:
+      - "crm_management"
+      - "customer_segmentation"
+      - "automation_workflows"
+      - "lead_nurturing"
+      - "customer_analytics"
+      - "integration_management"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 2
+    priority_level: "medium"
+
+# Performance settings
+performance:
+  team_max_concurrent: 6
+  priority_level: "high"
+  resource_allocation: "standard"
+  
+# Quality assurance
+quality:
+  review_required: true
+  accuracy_threshold: 0.92
+  compliance_check: true
+  performance_testing: true
+
+# Digital presence specific settings
+digital_presence:
+  brand_consistency: true
+  seo_optimization: true
+  mobile_first: true
+  accessibility_compliance: true
+  analytics_integration: true

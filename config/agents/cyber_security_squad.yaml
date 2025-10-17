@@ -1,0 +1,98 @@
+# Agent Architecture 3.0: Cyber Security Squad Team Configuration
+# Enterprise-grade cybersecurity and penetration testing team
+
+team_info:
+  name: "cyber_security_squad"
+  description: "Proactive defense and security assessment specialists"
+  lead_agent: "penetration_tester"
+  specialization: "cybersecurity"
+
+coordination:
+  strategy: "collaborative"  # Security requires team coordination
+  consensus_threshold: 0.90  # High threshold for security decisions
+  collaboration_patterns:
+    - "penetration_tester -> security_auditor"
+    - "threat_intel_analyst -> penetration_tester"
+
+agents:
+  penetration_tester:
+    class: "PenetrationTester"
+    path: "src.agents.teams.cyber_security_squad.penetration_tester"
+    description: "Elite penetration tester for vulnerability assessment and ethical hacking"
+    skills: 
+      - "penetration_testing"
+      - "vulnerability_assessment"
+      - "ethical_hacking"
+      - "owasp_testing"
+      - "network_security"
+      - "web_app_security"
+      - "security_auditing"
+      - "risk_assessment"
+      - "compliance_testing"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+      - "code_lint"  # For security code analysis
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 2
+    priority_level: "critical"
+    
+  security_auditor:
+    class: "SecurityAuditor"
+    path: "src.agents.teams.cyber_security_squad.security_auditor"
+    description: "Comprehensive security auditing and compliance specialist"
+    skills:
+      - "security_auditing"
+      - "compliance_assessment"
+      - "policy_review"
+      - "iso27001"
+      - "soc2_compliance"
+      - "gdpr_compliance"
+      - "security_frameworks"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 1
+    priority_level: "high"
+    
+  threat_intel_analyst:
+    class: "ThreatIntelAnalyst"
+    path: "src.agents.teams.cyber_security_squad.threat_intel_analyst"
+    description: "Threat intelligence gathering and analysis specialist"
+    skills:
+      - "threat_intelligence"
+      - "threat_hunting"
+      - "malware_analysis"
+      - "incident_response"
+      - "cyber_threat_landscape"
+      - "attack_pattern_analysis"
+    tools:
+      - "knowledge_query"
+      - "file_write"
+      - "file_read"
+    model_preference: "general_purpose"
+    max_concurrent_tasks: 2
+    priority_level: "high"
+
+# Performance settings
+performance:
+  team_max_concurrent: 3
+  priority_level: "critical"
+  resource_allocation: "high"
+  
+# Quality assurance
+quality:
+  review_required: true
+  accuracy_threshold: 0.98  # Very high accuracy for security
+  compliance_check: true
+  peer_review: true
+
+# Security-specific settings
+security:
+  clearance_level: "confidential"
+  data_classification: "sensitive"
+  audit_trail: true
+  encryption_required: true

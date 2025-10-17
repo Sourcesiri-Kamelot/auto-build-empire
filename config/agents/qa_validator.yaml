@@ -1,0 +1,10 @@
+agent_id: "QAValidator_001"
+agent_class: "QAValidatorAgent"
+skills:
+  - "code_review"
+  - "testing"
+  - "validation"
+  - "quality_assurance"
+model_preference: "general_purpose"
+priority: 2
+active: true

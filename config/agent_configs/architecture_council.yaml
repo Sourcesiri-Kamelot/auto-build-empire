@@ -1,0 +1,28 @@
+team_name: architecture_council
+team_size: 3
+consensus_threshold: 0.8
+
+agents:
+  system_architect:
+    class: SystemArchitectAgent
+    path: src.agents.architecture_council.system_architect
+    prompt_file: src/agents/architecture_council/system_architect.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.llama3.2
+    specialty: "system_design_and_scalability"
+  
+  database_architect:
+    class: DatabaseArchitectAgent
+    path: src.agents.architecture_council.database_architect
+    prompt_file: src/agents/architecture_council/database_architect.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: onnx.roberta
+    specialty: "database_design_and_optimization"
+  
+  api_architect:
+    class: ApiArchitectAgent
+    path: src.agents.architecture_council.api_architect
+    prompt_file: src/agents/architecture_council/api_architect.prompt
+    primary_model: ollama.deepseek-coder
+    secondary_model: ollama.codellama
+    specialty: "api_design_and_microservices"

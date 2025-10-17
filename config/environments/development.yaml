@@ -1,0 +1,21 @@
+environment: development
+
+browser:
+  headless: false
+  timeout: 30
+  debug_mode: true
+
+logging:
+  level: DEBUG
+  console_output: true
+  file_output: true
+  log_directory: data/logs/development
+
+performance:
+  max_concurrent_agents: 4
+  request_timeout: 60
+  retry_attempts: 3
+
+security:
+  api_rate_limiting: false
+  debug_endpoints: true
